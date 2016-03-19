@@ -19,9 +19,21 @@ for($index = 0; $index <= 24; $index++): // 2eeme vleur Int à modifier pour aug
   $int_nbj = date("t", mktime(0,0,0,$num_mois,1,$num_an));
   $int_premj = date("w",mktime(0,0,0,$num_mois,1,$num_an));
 
-  // tableau des jours, tableau des mois...
+
+
+  /*
+  *
+  *	tableau des jours, tableau des mois...
+  *
+  */
   $tab_jours = array("","L","M","M","J","V","S","D");
   $tab_mois = array("","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre");
+
+  $tab_mois = apply_filters('abce_months_calendar',$tab_mois);
+
+  $tab_jours = apply_filters('abce_day_calendar',$tab_jours);
+
+
 
   $int_nbjAV = date("t", mktime(0,0,0,($num_mois-1<1)?12:$num_mois-1,1,$num_an)); // nb de jours du moi d'avant
   $int_nbjAP = date("t", mktime(0,0,0,($num_mois+1>12)?1:$num_mois+1,1,$num_an)); // b de jours du mois d'apres
@@ -44,11 +56,28 @@ for($index = 0; $index <= 24; $index++): // 2eeme vleur Int à modifier pour aug
     <tr class="month"><td colspan="7" align="center"><a class="prev" href="">  <  </a>&nbsp;&nbsp;<?php echo $tab_mois[$num_mois]." ".$num_an;  ?>&nbsp;&nbsp;<a class="next" href="">   >   </a></td></tr>
 
     <?php
-    echo'<tr class="days-name"> <td  colspan="7">';
+
+
+
+    /*
+    *
+    * Définition des class  du calendrier
+    *
+    */
+
+
+    // Calendar Header with days
+
+    $day_row_name_class = "days-name";
+    $day_row_name_class = apply_filters('ace_day_row_class',$day_row_name_class);
+
+    echo "<tr class='$day_row_name_class'> <td  colspan='7'>";
     for($i = 1; $i <= 7; $i++){
       echo '<span>'.$tab_jours[$i].'</span>';
     }
     echo'</td> </tr>';
+
+
 
     for($i=0;$i<6;$i++) {
       echo "<tr class='days'>";
@@ -80,10 +109,15 @@ for($index = 0; $index <= 24; $index++): // 2eeme vleur Int à modifier pour aug
       <div class="popin">
         <template id="popin-template">
 
+          <?php ob_start(); ?>
           <h2>{{post_title}}</h2>
           <p>date : {{session_date.0}}</p>
           <p>{{post_content}}</p>
-          <a href="{{url}}" class="btn"> Voir l'envenement</a>
+          <a href='{{url}}' class="btn"> Voir l'envenement</a>
+          <?php $popin_content = ob_get_contents();ob_end_clean();
+          echo $popin_content = apply_filters('abce_popin_content',$popin_content);
+          ?>
+          
         </template>
       </div>
     </div>

@@ -16,6 +16,15 @@ define( 'ABCE', plugin_dir_path( __FILE__ ) );
 */
 //require 'register/admin_page.php';
 
+
+
+/**
+* Déclaration des functions
+*/
+require 'class/functions.php';
+
+
+
 /**
 * Register CPT session
 */
