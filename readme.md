@@ -29,15 +29,15 @@ add_filter('abce_months_calendar', 'ab_month_function');
 
 **Changer / ajouter classes sur les jours**
 ```php
-function ab_row_class($lol){
-  return $lol.' my-custom-class';
+function ab_row_class($class){
+  return $class.' my-custom-class';
 }
 add_filter('abce_day_row_class', 'ab_row_class');
 ```
 
 **Changer le contenu de la popin**
 ```php
-function ab_popin_content($lol){
+function ab_popin_content(){
   return "
   <h2>My Nice {{post_title}}</h2>
   <p>The date {{session_date.0}}</p>
@@ -45,31 +45,4 @@ function ab_popin_content($lol){
   ";
 }
 add_filter('abce_popin_content', 'ab_popin_content');
-```
-
-
-
-## Customiser la popin
-
-Le templating JavaScript est réalisé avec mustache.js
-
-```html
-<!-- ab-calendar-events/templates/calendar.php -->
-
-<!-- abce popin -->
-<div id="abce-popin" class="parentDisable">
-  <div class="popin-container">
-    <div class="popin">
-      <template id="popin-template">
-
-        <h2>{{post_title}}</h2>
-        <p>date : {{session_date.0}}</p>
-        <p>{{post_content}}</p>
-        <a href="{{url}}" class="btn"> Voir l'envenement</a>
-      </template>
-    </div>
-  </div>
-</div>
-<!-- abce popin -->
-
 ```
