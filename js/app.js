@@ -128,20 +128,11 @@ sliceSessionId : function(sessionId){
 },
 firePopin : function(){
 
-  $('.open-popup-link').magnificPopup({
-    type:'inline',
-    midClick: true
-  });
-  $('.open-popup-link').trigger('click');
+
 
 },
 adjustPopinHeight : function(){
-  var popinHeight = $('.popin').height();
-  if(popinHeight > 300){
-    $('.popin').css('margin-top',(popinHeight*-1)/2);
-  }else{
-    $('.popin').css('margin-top',(popinHeight*-1)/2);
-  }
+
 }
 };
 

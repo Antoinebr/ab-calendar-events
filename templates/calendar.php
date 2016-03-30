@@ -71,11 +71,11 @@ for($index = 0; $index <= 24; $index++): // 2eeme vleur Int à modifier pour aug
     $day_row_name_class = "days-name";
     $day_row_name_class = apply_filters('ace_day_row_class',$day_row_name_class);
 
-    echo "<tr class='$day_row_name_class'> <td  colspan='7'>";
+    echo'<tr class="days-name">';
     for($i = 1; $i <= 7; $i++){
-      echo '<span>'.$tab_jours[$i].'</span>';
+      echo '<td><span>'.$tab_jours[$i].'</span></td>';
     }
-    echo'</td> </tr>';
+    echo' </tr>';
 
 
 
@@ -117,7 +117,7 @@ for($index = 0; $index <= 24; $index++): // 2eeme vleur Int à modifier pour aug
           <?php $popin_content = ob_get_contents();ob_end_clean();
           echo $popin_content = apply_filters('abce_popin_content',$popin_content);
           ?>
-          
+
         </template>
       </div>
     </div>

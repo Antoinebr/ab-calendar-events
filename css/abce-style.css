@@ -1,29 +1,34 @@
-.agenda .session {
+
+.session{
   background-color: #4D006C !important;
-  color: #FFF !important;
+  color: #FFF!important;
   cursor: pointer;
 }
-.agenda .seminaire {
+
+.seminaire{
   background-color: #e72364 !important;
 }
-.agenda .actupratique {
-  background-color: #2665A5 !important;
+.actupratique{
+  background-color: #2665A5!important;
 }
-.agenda .tab-hide {
+
+.tab-hide{
   display: none;
 }
-.agenda .calendar {
+
+.calendar{
   background-color: #cdb9d5;
   border: none;
   margin: auto;
   width: 100%;
   max-width: 450px;
   margin-top: 20px;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 1px;
   margin-bottom: 28px;
+  border: 1px solid rgba(77, 2, 110, 0.22);
 }
-.agenda .calendar .days td {
+.calendar .days td{
   width: 40px;
   height: 30px;
   text-align: center;
@@ -31,8 +36,14 @@
   color: #4d026e;
   font-weight: 600;
   font-size: 11px;
+  border: 1px solid rgba(77, 2, 110, 0.22);
 }
-.agenda .calendar .month td {
+
+.calendar .month{
+  border: 1px solid rgba(77, 2, 110, 0.22);
+}
+
+.calendar .month td{
   background-color: #F8F8F8;
   height: 27px;
   position: relative;
@@ -41,12 +52,14 @@
   font-size: 11px;
   font-weight: 600;
 }
-.agenda .calendar .days-name {
+
+.calendar .days-name{
   height: 28px;
   text-align: center;
   background-color: #F8F8F8;
 }
-.agenda .calendar .next {
+
+.calendar .next{
   position: absolute;
   right: 11px;
   font-size: 16px;
@@ -54,7 +67,8 @@
   top: 2px;
   color: #4E006E;
 }
-.agenda .calendar .prev {
+
+.calendar .prev{
   position: absolute;
   left: 11px;
   font-size: 16px;
@@ -62,11 +76,18 @@
   top: 2px;
   color: #4E006E;
 }
-.agenda .calendar .days .disabled {
+
+.calendar .days .active{
+  // background-color: #4e006e;
+  // color: #FFF;
+}
+
+.calendar .days .disabled{
   background-color: #d9d9d9;
   color: #808080;
 }
-.agenda .calendar .days-name span {
+
+.calendar .days-name span{
   display: inline-block;
   width: 41px;
   margin: 2px;
@@ -74,6 +95,12 @@
   color: #3e0060;
   font-weight: 600;
   font-size: 11px;
+}
+
+@media only screen and (max-width: 380px){
+  .calendar .days-name span {
+    width: auto;
+  }
 }
 
 
